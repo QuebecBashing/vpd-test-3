@@ -1,0 +1,16 @@
+# Static scanner input only. The local action does not exist.
+name: settings
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: Static fixture label
+        type: string
+permissions: {}
+jobs:
+  fixture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/fixture-action-not-present
+        with:
+          label: ${{ github.event.inputs.label }}
